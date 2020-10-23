@@ -9,57 +9,64 @@ VueRouter.prototype.push = function push(location) {
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', redirect: '/login' },
+  { path: '/', redirect: '/home' },
   {
     path: '/login',
     name: 'login',
     component: () => import('@/views/Login.vue')
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: () => import('@/views/Home.vue')
+    path: '/main',
+    name: 'main',
+    component: () => import('@/views/Main/Main.vue'),
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/Home/Home.vue'),
+      }
+    ]
   },
-  {
-    path: '/test',
-    name: 'Test',
-    component: () => import('@/views/Test.vue')
-  },
-  {
-    path: '/test2',
-    name: 'Test2',
-    component: () => import('@/views/Test2.vue')
-  },
-  {
-    path: '/test3',
-    name: 'Test3',
-    component: () => import('@/views/Test3.vue')
-  },
-  {
-    path: '/test4',
-    name: 'Test4',
-    component: () => import('@/views/Test4.vue')
-  },
-  {
-    path: '/test5',
-    name: 'Test5',
-    component: () => import('@/views/Test5.vue')
-  },
-  {
-    path: '/test6',
-    name: 'Test6',
-    component: () => import('@/views/Test6.vue')
-  },
-  {
-    path: '/test7',
-    name: 'Test7',
-    component: () => import('@/views/Test7.vue')
-  },
-  {
-    path: '/test8',
-    name: 'Test8',
-    component: () => import('@/views/Test8.vue')
-  }
+  // {
+  //   path: '/test',
+  //   name: 'Test',
+  //   component: () => import('@/views/Test.vue')
+  // },
+  // {
+  //   path: '/test2',
+  //   name: 'Test2',
+  //   component: () => import('@/views/Test2.vue')
+  // },
+  // {
+  //   path: '/test3',
+  //   name: 'Test3',
+  //   component: () => import('@/views/Test3.vue')
+  // },
+  // {
+  //   path: '/test4',
+  //   name: 'Test4',
+  //   component: () => import('@/views/Test4.vue')
+  // },
+  // {
+  //   path: '/test5',
+  //   name: 'Test5',
+  //   component: () => import('@/views/Test5.vue')
+  // },
+  // {
+  //   path: '/test6',
+  //   name: 'Test6',
+  //   component: () => import('@/views/Test6.vue')
+  // },
+  // {
+  //   path: '/test7',
+  //   name: 'Test7',
+  //   component: () => import('@/views/Test7.vue')
+  // },
+  // {
+  //   path: '/test8',
+  //   name: 'Test8',
+  //   component: () => import('@/views/Test8.vue')
+  // }
 ]
 
 const router = new VueRouter({

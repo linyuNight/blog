@@ -28,36 +28,36 @@
 <script>
 export default {
   data() {
-    // var validateUser = (rule, value, callback) => {
-    //   // if (value === '') {
-    //   //   callback(new Error('请输入用户名'))
-    //   // } else {
-    //   //   if (this.ruleForm.checkUser !== '') {
-    //   //     this.$refs.ruleForm.validateField('checkUser')
-    //   //   }
-    //   //   callback()
-    //   // }
-    //   if (value !== '111') {
-    //     callback(new Error('不是111'))
-    //   } else {
-    //     callback()
-    //   }
-    // }
-    // var validatePass = (rule, value, callback) => {
-    //   // if (value === '') {
-    //   //   callback(new Error('请输入密码'))
-    //   // } else {
-    //   //   if (this.ruleForm.checkPass !== '') {
-    //   //     this.$refs.ruleForm.validateField('checkPass')
-    //   //   }
-    //   //   callback()
-    //   // }
-    //   if (value !== '222') {
-    //     callback(new Error('不是222'))
-    //   } else {
-    //     callback()
-    //   }
-    // }
+    var validateUser = (rule, value, callback) => {
+      // if (value === '') {
+      //   callback(new Error('请输入用户名'))
+      // } else {
+      //   if (this.ruleForm.checkUser !== '') {
+      //     this.$refs.ruleForm.validateField('checkUser')
+      //   }
+      //   callback()
+      // }
+      if (value !== '111') {
+        callback(new Error('用户名错误'))
+      } else {
+        callback()
+      }
+    }
+    var validatePass = (rule, value, callback) => {
+      // if (value === '') {
+      //   callback(new Error('请输入密码'))
+      // } else {
+      //   if (this.ruleForm.checkPass !== '') {
+      //     this.$refs.ruleForm.validateField('checkPass')
+      //   }
+      //   callback()
+      // }
+      if (value !== '222') {
+        callback(new Error('密码错误'))
+      } else {
+        callback()
+      }
+    }
     return {
       // ruleForm: {
       //   user: '',
@@ -68,22 +68,34 @@ export default {
       //   pass: [{ validator: validatePass, trigger: 'blur' }]
       // }
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        username: '',
+        password: '',
       },
       // 这是表单的验证规则对象
       loginFormRules: {
         // 验证用户名是否合法
         username: [
-          { required: true, message: '请输入登录名称', trigger: 'blur' },
-          { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+          // { required: true, message: '请输入登录名称', trigger: 'blur' },
+          // {
+          //   min: 3,
+          //   max: 10,
+          //   message: '长度在 3 到 10 个字符',
+          //   trigger: 'blur',
+          // },
+          { validator: validateUser, trigger: 'blur' },
         ],
         // 验证密码是否合法
         password: [
-          { required: true, message: '请输入登录密码', trigger: 'blur' },
-          { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
-        ]
-      }
+          // { required: true, message: '请输入登录密码', trigger: 'blur' },
+          // {
+          //   min: 6,
+          //   max: 15,
+          //   message: '长度在 6 到 15 个字符',
+          //   trigger: 'blur',
+          // },
+          { validator: validatePass, trigger: 'blur' },
+        ],
+      },
     }
   },
   created() {},
@@ -105,20 +117,20 @@ export default {
     //   this.$refs.loginFormRef.resetFields()
     // },
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (!valid) {
           return this.$message.error('用户名或密码错误!!')
         }
 
         this.$router.push({
-          path: '/home'
+          path: '/home',
         })
       })
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()
-    }
-  }
+    },
+  },
 }
 </script>
 
