@@ -10,11 +10,11 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', redirect: '/home' },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/Login.vue')
-  },
+  // {
+  //   path: '/login',
+  //   name: 'login',
+  //   component: () => import('@/views/Login.vue')
+  // },
   {
     path: '/main',
     name: 'main',
@@ -24,6 +24,21 @@ const routes = [
         path: '/home',
         name: 'home',
         component: () => import('@/views/Home/Home.vue'),
+      },
+      {
+        path: '/my',
+        name: 'my',
+        component: () => import('@/views/My/My.vue'),
+      },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/Login/Login.vue'),
+      },
+      {
+        path: '/home/detail/:id',
+        name: 'detail',
+        component: () => import('@/views/Home/Detail/Detail.vue'),
       }
     ]
   },
