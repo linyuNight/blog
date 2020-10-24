@@ -1,6 +1,6 @@
 <template>
   <el-form :inline="inline" :model="form" ref="form" label-width="100px">
-    <el-table :data="form.params" style="width: 100%">
+    <!-- <el-table :data="form.params" style="width: 100%">
       <el-table-column label="检测类型" align="center" width="160">
         <template slot-scope="scope">
           <span>{{ scope.row.kpiName }}</span>
@@ -33,8 +33,8 @@
           </el-row>
         </template>
       </el-table-column>
-    </el-table>
-    <!-- <el-form-item v-for="item in formLabel" :key="item.model" :label="item.label">
+    </el-table>-->
+    <el-form-item v-for="item in formLabel" :key="item.model" :label="item.label">
       <el-input v-model="form[item.model]" :placeholder="'请输入' + item.label" v-if="!item.type"></el-input>
       <el-select v-model="form[item.model]" placeholder="请选择" v-if="item.type === 'select'">
         <el-option
@@ -52,7 +52,7 @@
         v-if="item.type === 'date'"
         value-format="yyyy-MM-dd"
       ></el-date-picker>
-    </el-form-item>-->
+    </el-form-item>
     <!-- <el-form-item>
       <slot></slot>
     </el-form-item>-->
@@ -72,7 +72,7 @@ export default {
     }
   },
   created() {
-    console.log(this.form)
+    // console.log(this.form)
   },
 }
 </script>
