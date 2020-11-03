@@ -1,0 +1,29 @@
+.el-pagination{
+  display: flex;
+  height: 46px;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.is-in-pagination{
+  width: 60px;
+  height: 26px;
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li{
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: 26px;
+  line-height: 26px;
+  height: 26px;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+  background-color: #fff;
+  color: #3C7AFF;
+  border: 1px solid #3C7AFF;
+}

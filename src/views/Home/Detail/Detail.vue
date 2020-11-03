@@ -1,20 +1,23 @@
 <template>
   <div>
     <div>
+      <div class="article-title">标题1</div>
       <mavon-editor v-model="content" defaultOpen="preview" :toolbarsFlag="false" :subfield="false"></mavon-editor>
     </div>
     <el-button v-if="!isLogin" type="primary" size="default" @click="toLogin">登录留⾔吧</el-button>
     <div v-if="isLogin">
       <img src />
-      <div>小林</div>
+      <div>小林2</div>
       <textarea v-model="submitText" id cols="30" rows="10"></textarea>
       <el-button type="primary" size="default" @click="submitBtn">发表评论</el-button>
     </div>
+    <common-form :model="{}" :labelList="$form.formHome()"></common-form>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import CommonForm from '@/components/CommonForm'
 
 export default {
   data() {
@@ -27,6 +30,9 @@ export default {
     ...mapGetters({
       isLogin: 'login/isLogin',
     }),
+  },
+  components: {
+    CommonForm,
   },
   created() {
     this.content = this.$route.params.id

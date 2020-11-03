@@ -26,9 +26,9 @@ const routes = [
         component: () => import('@/views/Home/Home.vue'),
       },
       {
-        path: '/my',
-        name: 'my',
-        component: () => import('@/views/My/My.vue'),
+        path: '/write',
+        name: 'write',
+        component: () => import('@/views/Write/Write.vue'),
       },
       {
         path: '/login',

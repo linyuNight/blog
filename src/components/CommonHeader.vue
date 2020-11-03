@@ -11,7 +11,7 @@
       router
     >
       <el-menu-item index="/home">首 页</el-menu-item>
-      <el-menu-item index="/my">我 的</el-menu-item>
+      <el-menu-item index="/write">写文章</el-menu-item>
       <el-menu-item index="/login">登 录</el-menu-item>
     </el-menu>
   </div>

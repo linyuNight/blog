@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container>
-      <el-header>
+      <el-header height="auto">
         <common-header></common-header>
       </el-header>
       <el-main>
@@ -31,6 +31,12 @@ export default {
   height: 100%;
   .el-container {
     height: 100%;
+    .el-header {
+      padding: 0;
+    }
+    .el-main {
+      padding: 0;
+    }
   }
 }
 </style>

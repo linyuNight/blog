@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    isLogin: false
+    isLogin: true
   },
   getters: {
     isLogin(state) {

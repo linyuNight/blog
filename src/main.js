@@ -4,11 +4,20 @@ import router from './router'
 import store from './store'
 import '@/assets/scss/reset.scss'
 import './plugins/element.js'
+import '@/assets/scss/common.scss'
 // import axios from 'axios'
 import http from './plugins/http.js'
-import '../rem.js';
+import form from './plugins/form.js'
+// import setRem from '../rem.js';
+
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+
+
+// Vue.prototype.$fontSize = setRem()
+// window.onresize = function () {
+//   Vue.prototype.$fontSize = setRem()
+// }
 
 Vue.use(mavonEditor)
 
@@ -20,6 +29,7 @@ Vue.config.productionTip = false
 // Vue.prototype.$http2 = axios
 
 Vue.prototype.$http = http
+Vue.prototype.$form = form
 
 new Vue({
   router,
