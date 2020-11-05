@@ -22,7 +22,7 @@
       >
         <template slot-scope="scope">
           <div v-if="item.prop == 'operate'">
-            <el-button type="primary" size="default">编辑</el-button>
+            <el-button type="primary" size="default" @click="handleEdit(scope.row)">编辑</el-button>
             <el-button type="primary" size="default">删除</el-button>
           </div>
           <div v-else>{{scope.row[item.prop]}}</div>
@@ -55,10 +55,10 @@ export default {
   },
   methods: {
     handleEdit(row) {
-      this.$emit('edit', row)
+      this.$emit('handleEdit', row)
     },
     handleDelete(row) {
-      this.$emit('del', row)
+      this.$emit('handleDelete', row)
     },
     changePage(page) {
       this.$emit('changePage', page)

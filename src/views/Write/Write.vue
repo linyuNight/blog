@@ -8,6 +8,7 @@
         <blog-item></blog-item>
       </el-main>
     </el-container>-->
+    <el-button type="primary" size="default" @click="addBtn">新增</el-button>
     <common-table
       :tableData="tableData"
       :tableLabel="tableLabel"
@@ -16,6 +17,19 @@
       :pageSize="pageSize"
       :total="total"
     ></common-table>
+    <el-dialog
+      class="p-dialog"
+      :visible.sync="isShow"
+      destory-on-close
+      :close-on-click-modal="false"
+    >
+      <template v-if="dialogType==='新建'">
+        <div slot="title">新建</div>
+      </template>
+      <template v-if="dialogType==='修改'">
+        <div slot="title">修改</div>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -55,12 +69,20 @@ export default {
       currentPage: 1,
       pageSize: 10,
       total: 10,
+
+      isShow: false,
+      dialogType: '新建',
     }
   },
   components: {
     // CommonAside,
     // BlogItem,
     CommonTable,
+  },
+  methods: {
+    addBtn() {
+      this.isShow = true
+    },
   },
 }
 </script>

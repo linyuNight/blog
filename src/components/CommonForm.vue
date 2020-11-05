@@ -10,11 +10,30 @@
       :show-message="true"
     >
       <template v-for="(item,index) in labelList">
+        <!-- <mavon-editor
+          v-if="item.type=='mavon'"
+          v-model="model[item.model]"
+          defaultOpen="preview"
+          :toolbarsFlag="false"
+          :subfield="false"
+          :key="index"
+        ></mavon-editor>-->
         <el-form-item :label="item.label?item.label:''" :prop="item.model" :key="index">
           <el-input
             v-if="!item.type"
             @input="handlerForm"
             clearable
+            :disabled="disabled||item.disabled"
+            v-model="model[item.model]"
+          ></el-input>
+          <el-input
+            v-else-if="item.type=='textarea'"
+            type="textarea"
+            :rows="3"
+            :maxlength="item.length?item.length:200"
+            show-word-limit
+            placeholder="请输入内容"
+            @input="handlerForm"
             :disabled="disabled||item.disabled"
             v-model="model[item.model]"
           ></el-input>
